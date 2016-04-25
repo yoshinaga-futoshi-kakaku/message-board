@@ -1,11 +1,15 @@
-<h1>message</h1>
-<% @messages.each do |message| %>
-  name:
-<%= message.name %>
-  what:
-<%= message.body %>
-<br />
-<% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    message
+  </div>
+  <div class="panel-body">
+    <% @messages.each do |message| %>
+    <span class="label label-info"><%= message.name %></span>
+    <%= message.body %>
+    <br />
+    <% end %>
+  </div>
+</div>
 
 <%= form_for(@message) do |f| %>
 
@@ -13,9 +17,9 @@ name:
 
 <%= f.text_field :name %>
 
-who:
+what:
 
 <%= f.text_field :body %>
 
-<%= f.submit %>
+<%= f.submit class: "btn btn-sm btn-primary"%>
 <% end %>
